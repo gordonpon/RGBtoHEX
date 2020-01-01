@@ -12,6 +12,7 @@ let strHEX = ''
 let arrayRGB = new Array()
 let arrayHEX = new Array()
 
+//R欄位監聽器
 inputR.addEventListener('input', event => {
     
     let intR = Number(event.target.value)
@@ -33,7 +34,7 @@ inputR.addEventListener('input', event => {
     arrayHEX.splice(0, 1, H_16)
     console.log(H_16)
 })
-
+//G欄位監聽器
 inputG.addEventListener('input', event => {
     
     let intG = Number(event.target.value)
@@ -55,7 +56,7 @@ inputG.addEventListener('input', event => {
     }
     arrayHEX.splice(1, 1, E_16)
 })
-
+//B欄位監聽器
 inputB.addEventListener('input', event => {
     
     let intB = Number(event.target.value)
@@ -78,7 +79,7 @@ inputB.addEventListener('input', event => {
     }
     arrayHEX.splice(2, 1, X_16)
 })
-
+//按鈕監聽器
 btnConvert.addEventListener('click', (event) => {
     if(!checkInput()) {
         strHEX = convertToHEX(arrayHEX)
@@ -87,7 +88,7 @@ btnConvert.addEventListener('click', (event) => {
         console.log(arrayHEX) 
     }
 })
-
+//RGBtoHEX
 function convertToHEX(arr) {  
     let str ='#'
     for(let i=0; i<arr.length; i++) {
@@ -95,51 +96,10 @@ function convertToHEX(arr) {
     }
     return str.toUpperCase().toString()
 }
-
+//檢查欄位輸入
 function checkInput() {
     if(inputR.value.replace(/^ | $/g,'') == '' || inputG.value.replace(/^ | $/g,'') == '' || inputB.value.replace(/^ | $/g,'') == '') {
         alert("欄位不可為空白")
         return true
     }
 }
-
-
-
-
-
-
-// const styles = getComputedStyle(document.documentElement);
-// const value = String(styles.getPropertyValue('--bg-primary-color')).trim();
-
-/* 讀取背景顏色 */
-// document.getElementById("color-name").innerHTML=value;
-
-/* 修改背景顏色 */
-//document.documentElement.style.setProperty('--bg-primary-color', 'rgb(255, 0, 0)');
-
-
-// function onlyNum()
-// {
-//     if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
-//     //考慮小鍵盤上的數字鍵
-//     event.returnvalue=false;
-// }
-
-/*
-1.新增RGB 各一個INPUT
-2.輸入數字0~255，右邊方塊產生對應的顏色
-3.新增轉換按鈕
-4.新增HEX INPUT及對應顏色的方塊
-5.新增條件限制
-    a.RGB INPUT不得為空
-    b.只能輸入數字、數字不可小於0及大於255
-    c.按下轉換按鈕，HEX INPUT才可出現內容及方塊才可變色
-    d.HEX Input不可累加
-
-*/
-
-
-
-
-
-
