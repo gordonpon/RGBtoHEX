@@ -20,19 +20,16 @@ inputR.addEventListener('input', event => {
 
     arrayRGB.splice(0, 1, intR)
     const strR = 'rgb(' + intR +' ,0 ,0)'
-    document.documentElement.style.setProperty('--colorR', strR);
-    switch(intR) {
-        case intR >= 10 && intR < 16:
-            H_16 ='0' + Math.abs(intR).toString(16)
-            break
-        case intR > 255:
-            H_16 = Math.abs(255).toString(16)
-            break
-        default:
-            H_16 = Math.abs(intR).toString(16)
+    document.documentElement.style.setProperty('--colorR', strR)
+    
+    if(intR >= 10 && intR < 16) {
+        H_16 ='0' + Math.abs(intR).toString(16)
+    }else if(intR > 255) {
+        H_16 = Math.abs(255).toString(16)
+    }else {
+        H_16 = Math.abs(intR).toString(16)
     }
     arrayHEX.splice(0, 1, H_16)
-    console.log(H_16)
 })
 //G欄位監聽器
 inputG.addEventListener('input', event => {
@@ -42,17 +39,14 @@ inputG.addEventListener('input', event => {
 
     arrayRGB.splice(1, 1, intG)
     let strG = 'rgb(0, ' + intG + ' ,0)'
-    document.documentElement.style.setProperty('--colorG', strG);
+    document.documentElement.style.setProperty('--colorG', strG)
 
-    switch(intG) {
-        case intG >= 10 && intG < 16:
-            E_16 ='0' + Math.abs(intG).toString(16)
-            break
-        case intG > 255:
-            E_16 = Math.abs(255).toString(16)
-            break
-        default:
-            E_16 = Math.abs(intG).toString(16)  
+     if(intG >= 10 && intG < 16) {
+        E_16 ='0' + Math.abs(intG).toString(16)
+    }else if(intG > 255) {
+        E_16 = Math.abs(255).toString(16)
+    }else {
+        E_16 = Math.abs(intG).toString(16)
     }
     arrayHEX.splice(1, 1, E_16)
 })
@@ -64,18 +58,14 @@ inputB.addEventListener('input', event => {
 
     arrayRGB.splice(2, 1, intB)
     let strB = 'rgb(0, 0, ' + intB + ')'
-    document.documentElement.style.setProperty('--colorB', strB);
+    document.documentElement.style.setProperty('--colorB', strB)
 
-    switch(intB) {
-        case intB >= 10 && intB < 16:
-            X_16 ='0' + Math.abs(intB).toString(16)
-            break
-        case intB > 255:
-            X_16 = Math.abs(255).toString(16)
-            console.log(X_16)
-            break
-        default:
-            X_16 = Math.abs(intB).toString(16)
+    if(intB >= 10 && intB < 16) {
+        X_16 ='0' + Math.abs(intB).toString(16)
+    }else if(intB > 255) {
+        X_16 = Math.abs(255).toString(16)
+    }else {
+        X_16 = Math.abs(intB).toString(16)
     }
     arrayHEX.splice(2, 1, X_16)
 })
